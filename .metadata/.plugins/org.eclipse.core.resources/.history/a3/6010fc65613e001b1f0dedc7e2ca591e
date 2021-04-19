@@ -1,0 +1,24 @@
+package mypackage;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TestList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int[] ints = {1, 3, 4};
+		List<Integer> list = new ArrayList<Integer>() {
+			{
+				add(1);
+				add(2);
+			}
+		};
+		for(int i = 0; i < ints.length; ++i) {
+		list.add(ints[i]);
+		}
+
+	}
+
+}

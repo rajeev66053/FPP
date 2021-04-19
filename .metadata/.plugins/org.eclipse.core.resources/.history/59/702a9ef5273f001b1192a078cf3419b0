@@ -1,0 +1,91 @@
+package seventh_assignment3;
+
+public class DoublyLinkedList {
+	
+		Node header;
+		DoublyLinkedList(){
+			header = new Node();
+		}
+		//adds to the end of the list
+		public void addLast(String item){
+			//implement
+			Node last=new Node();
+			Node current=header;
+			
+			while(current.next!=null) {
+				current=current.next;
+				
+			}
+
+			last.value=item;
+			last.previous=current;			
+			current.next=last;
+			
+			
+		}
+		public boolean remove(String item){
+
+			//Implement
+			if(item==null) {
+				return false;
+			}
+			
+			Node current=header.next;
+			
+			boolean removed=false;
+			
+			while(current!=null) {
+				if(current.value==item) {
+					current.previous.next=current.next;
+					current.next.previous=current.previous;
+					removed=true;
+					break;					
+				}
+
+				current=current.next;
+			}
+		
+			if(removed) {
+				return true;
+			}			
+			
+			return false;
+		}
+		@Override
+		public String toString() {
+			
+			StringBuilder sb = new StringBuilder();
+			toString(sb, header);
+			return sb.toString();
+			
+		}
+		private void toString(StringBuilder sb, Node n) {
+			System.out.println("aaaa"+n);
+			if(n==null) return;
+
+			System.out.println("dfsd"+n+(n));
+			if(n.value != null) sb.append(" " + n.value);
+			toString(sb, n.next);
+		}
+		
+		class Node {
+			String value;
+			Node next;
+			Node previous;
+			
+			public String toString() {
+				return value == null ? "null" : value;
+			}
+		}
+	
+		public static void main(String[] args){
+			DoublyLinkedList list = new DoublyLinkedList();
+			list.addLast("Bob");
+			list.addLast("Harry");
+			list.addLast("Steve");
+			System.out.println(list);
+
+			list.remove("Harry");
+			System.out.println(list);
+		}
+}

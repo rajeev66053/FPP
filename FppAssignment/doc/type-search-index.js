@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"first_assignment","l":"Prog1"},{"p":"first_assignment","l":"Prog2"},{"p":"first_assignment","l":"Prog4"},{"p":"first_assignment","l":"Prog5"},{"p":"first_assignment","l":"RandomNumbers"},{"p":"first_assignment","l":"RemoveDups"}]

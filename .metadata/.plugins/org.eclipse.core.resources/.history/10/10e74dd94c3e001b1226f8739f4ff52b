@@ -1,0 +1,63 @@
+package tenth_assignment1;
+
+import java.util.Scanner;
+
+public class UserException extends Exception {
+	
+	public UserException() {
+		super(); 
+	}
+	public UserException(String msg) {
+		super(msg); 
+	}
+
+	public static void main(String[] args) throws UserException {
+		// TODO Auto-generated method stub
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter customer name:");
+		String customerName=sc.nextLine();
+		System.out.println("Enter customer account number:");
+		String accountNumber=sc.nextLine();
+		System.out.println("Enter customer current balance amount:");
+		double balance=sc.nextDouble();
+		
+		
+		CustomerAccount ca=new CustomerAccount(customerName,accountNumber,balance);
+		System.out.println("Enter  1 to deposit, 2 to withdraw and 3 to check balance.");
+		int choice=sc.nextInt();
+		
+		do {
+			switch(choice) {
+
+			case 1:	System.out.println("Enter deposit amount.");
+					double depositAmount=sc.nextDouble();
+					ca.deposit(depositAmount);
+					break;
+			case 2:	System.out.println("Enter withdraw amount.");
+					double withdrawAmount=sc.nextDouble();
+					ca.withdraw(withdrawAmount);
+					break;
+			case 3:	double currentBalance=ca.getBalance();
+					System.out.println("Your current balance is:"+currentBalance);
+					break;
+			default:System.out.println("Invalid choice.Please try again. ");
+					break;
+
+			}while(choice>0&&choice<=3)
+		
+		ca.deposit(200);
+		System.out.println(ca.getBalance());
+		boolean withdrawn=ca.withdraw(3550);
+		if(!withdrawn) {
+			throw new UserException("You cannot withdraw more than balance.");
+		}
+		
+		if(ca.getBalance()<100) {
+			throw new UserException("Your balance is less than 100.");
+		}
+		}while(choice > 0 && choice <=3)
+
+	}
+
+}

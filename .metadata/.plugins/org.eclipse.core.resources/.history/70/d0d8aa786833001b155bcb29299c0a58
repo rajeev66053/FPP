@@ -1,0 +1,45 @@
+package third_assignment;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class BinarySearch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] numArray= {1,3,4,6,8,10,11,13,14,18,20};
+		System.out.println("Arrays :"+Arrays.toString(numArray));
+		System.out.println("Enter the target value:");
+		
+		Scanner sc=new Scanner(System.in);
+		int target=sc.nextInt();
+		
+		System.out.printf("Searching %d in %s results: %d",target,Arrays.toString(numArray),searchTarget(numArray,target));
+
+	}
+	
+	public static int searchTarget(int[] numArray,int target) {
+		
+		int numArrayLength=numArray.length;
+		if(numArrayLength==0) {
+			return -1;
+		}
+		return searchTarget(numArray,target,0,numArrayLength-1);
+	}
+	
+	private static int searchTarget(int[] numArray,int target, int startPosition,int endPosition) {
+
+		int index=(startPosition+endPosition)/2;
+		
+		if(numArray[index]==target) {
+			return index;
+		}else if(target<numArray[index]) {
+			endPosition=index-1;
+			return searchTarget(numArray,target,startPosition,endPosition);
+		}else {
+			startPosition=index+1;
+			return searchTarget(numArray,target,startPosition,endPosition);
+		}
+	}
+
+}

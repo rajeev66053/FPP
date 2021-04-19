@@ -1,0 +1,23 @@
+package tenth_assignment1;
+
+public class UserException extends Exception {
+	
+	public UserException() {
+		super();
+	}
+	
+	public UserException(String msg) {
+		System.out.println(msg); 
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		CustomerAccount ca=new CustomerAccount("Rajeev Thapaliya","10457812A",3000);
+		ca.deposit(200);
+		System.out.println(ca.getBalance());
+		
+
+	}
+
+}

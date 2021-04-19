@@ -1,0 +1,29 @@
+package tenth_assignment1;
+
+public class UserException extends Exception {
+	
+	public UserException() {
+		super(); 
+	}
+	public UserException(String msg) {
+		super(msg); 
+	}
+
+	public static void main(String[] args) throws UserException {
+		// TODO Auto-generated method stub
+		
+		CustomerAccount ca=new CustomerAccount("Rajeev Thapaliya","10457812A",3000);
+		ca.deposit(200);
+		System.out.println(ca.getBalance());
+		boolean withdrawn=ca.withdraw(3550);
+		if(!withdrawn) {
+			throw new UserException("You cannot withdraw more than balance.");
+		}
+		
+		if(ca.getBalance()<100) {
+			throw new UserException("Your balance is less than 100.");
+		}
+
+	}
+
+}

@@ -1,0 +1,21 @@
+package third_assignment;
+
+import java.util.Scanner;
+
+public class MergeString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter first String :");
+		String str1=sc.nextLine();
+		System.out.println("Enter second String :");
+		String str2=sc.nextLine();
+		System.out.printf("Merged String of %s and %s is %s ",str1,str2,mergedString(str1,str2));
+	}
+	
+	public static String mergedString(String str1,String str2) {
+		return "a";
+	}
+
+}

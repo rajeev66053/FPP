@@ -1,0 +1,5 @@
+package eighth_assignment1;
+
+public interface Stack {
+
+}

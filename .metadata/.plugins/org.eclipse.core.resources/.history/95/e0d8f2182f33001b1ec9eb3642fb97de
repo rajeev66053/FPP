@@ -1,0 +1,47 @@
+package first_assignment;
+
+import java.util.Scanner;
+
+//import java.util.Scanner;
+
+public class Prog4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub		
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Number of String?");
+		int numberOfString=sc.nextInt();
+
+		String[] stringArray=new String[numberOfString];
+		
+		for(int i=0; i<numberOfString;i++) {
+			System.out.println("Enter a string value:");
+			String value=sc.nextLine();
+			stringArray[i]=value;
+			System.out.printf("The length of %s is %d.",value,value.length());
+			System.out.println();
+		}
+
+		sc.close();
+		
+		/*int argsLength=args.length;
+		
+		for(int i=0;i<argsLength;i++) {
+			System.out.printf("The length of %s is %d.",args[i],args[i].length());
+		}
+		
+		int count=0;
+		for(String value:args){
+			if(value.startsWith("A")) {
+				count++;
+			}
+			
+		}*/
+
+//		System.out.println("The number of String starts with A is "+ count);
+	
+
+	}
+
+}

@@ -1,0 +1,64 @@
+package eighth_assignment;
+
+public class ArrayQueueImpl {
+	private int[] arr = new int[10];
+	private static int front = -1;
+	private static int rear = 0;
+	
+	
+	public int peek() {
+
+		//implement
+		if(arr.length==0) {
+			System.out.println("Queue is Empty");
+			return -1;
+		}
+		else {
+			return arr[front+1];
+		}
+	}
+	
+	public void enqueue(int obj){
+		//implement
+		if(rear>=arr.length) {
+			resize();
+		}
+		arr[rear]=obj;
+		rear=rear+1;
+	}
+	
+	public int dequeue() {
+
+		//implement
+		if(arr.length==0) {
+			System.out.println("Queue is Empty");
+			return -1;
+		}
+		else {
+			front=front+1;
+			int dequeElement=arr[front];
+			return dequeElement;
+		}
+	}
+	
+	public boolean isEmpty(){
+		//implement
+		if(arr.length==0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public int size(){
+		//implement
+		return arr.length;
+	}
+	
+	private void resize(){
+		//implement
+		int[]tempArray=new int[arr.length+1];
+		System.arraycopy(arr, 0, tempArray, 0, arr.length);
+		arr=tempArray;
+	}
+
+}
